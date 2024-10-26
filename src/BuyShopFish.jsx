@@ -1,9 +1,18 @@
-import CaKoi1 from './assets/CaKoi/koi1.jpg'
+import { useStore } from './zustand/store';
 import './BuyShopFish.css'
+import { DeleteOutlined } from '@ant-design/icons';
 
 function BuyShopFish() {
+    const cart = useStore(state => state.cart)
+    const removeCart = useStore(state => state.removeCart)
+
+    const handleRemoveCart = (itemId) => {
+        removeCart(itemId)
+        window.location = '/cart'
+    }
+
     return <main class="container">
-        
+
         <h2>Giỏ hàng</h2>
         <table class="cart-table">
             <thead>
@@ -25,52 +34,32 @@ function BuyShopFish() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <i class="fas fa-trash-alt">
-                        </i>
-                    </td>
-                    <td>
-                        <img alt="Image of Onkoi Karashi 4 năm tuổi 85 cm" src="{CaKoi1}" />
-                        <div>
-                            Onkoi Karashi 4 năm tuổi 85 cm
-                            <br />
-                            Vendor: OnKoi - Quang Minh
-                        </div>
-                    </td>
-                    <td>
-                        0 ₫
-                    </td>
-                    <td>
-                        <input min="1" style={{ width: "50px" }} type="number" value="1" />
-                    </td>
-                    <td>
-                        0 ₫
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="fas fa-trash-alt">
-                        </i>
-                    </td>
-                    <td>
-                        <img alt="Image of Onkoi showa 97 cm 5 tuổi" src="https://placehold.co/50x50" />
-                        <div>
-                            Onkoi showa 97 cm 5 tuổi
-                            <br />
-                            Vendor: OnKoi - Quang Minh
-                        </div>
-                    </td>
-                    <td>
-                        0 ₫
-                    </td>
-                    <td>
-                        <input min="1" style={{width: "50px"}} type="number" value="1" />
-                    </td>
-                    <td>
-                        0 ₫
-                    </td>
-                </tr>
+                {cart.map((item) => (
+                    <tr key={item.id}>
+                        <td>
+                            <button onClick={() => { handleRemoveCart(item.id) }}>
+                                <DeleteOutlined />
+                            </button>
+                        </td>
+                        <td className='flex gap-5 items-center'>
+                            <img alt="Image of Onkoi Karashi 4 năm tuổi 85 cm" src={item.thumbnail} />
+                            <div>
+                                {item.name}
+                                <br />
+                                Vendor: {item.seller}
+                            </div>
+                        </td>
+                        <td>
+                            0 ₫
+                        </td>
+                        <td>
+                            <input min="1" style={{ width: "50px" }} type="number" value={item.quantity} />
+                        </td>
+                        <td>
+                            0 ₫
+                        </td>
+                    </tr>
+                ))}
             </tbody>
         </table>
         <div class="cart-summary">
@@ -94,10 +83,11 @@ function BuyShopFish() {
                 </tr>
             </table>
             <a class="checkout-btn" href="#">
-            Tiến hành thanh toán
+                Tiến hành thanh toán
             </a>
         </div>
-       
+
     </main>
 }
+
 export default BuyShopFish;
