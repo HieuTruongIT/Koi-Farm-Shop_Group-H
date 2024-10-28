@@ -1,7 +1,8 @@
 import CaKoi1 from './assets/CaKoi/koi1.jpg'
 import './BuyShopFish.css'
-
+import { useNavigate } from 'react-router-dom';
 function BuyShopFish() {
+    const navigate = useNavigate();
     return <main class="container">
         
         <h2>Giỏ hàng</h2>
@@ -73,6 +74,9 @@ function BuyShopFish() {
                 </tr>
             </tbody>
         </table>
+        <button className="compare-btn" onClick={() => navigate('/compare-fish')}>
+            So sánh cá Koi
+        </button>
         <div class="cart-summary">
             <h2>Cộng giỏ hàng</h2>
             <table>
@@ -93,10 +97,13 @@ function BuyShopFish() {
                     </td>
                 </tr>
             </table>
+            
             <a class="checkout-btn" href="#">
             Tiến hành thanh toán
             </a>
         </div>
+        
+
        
     </main>
 }
