@@ -7,7 +7,6 @@ const Feedback = require('./models/Feedback');
 const app = express();
 const PORT = 5000;
 
-// Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -19,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/feedbackDB', {
     .then(() => console.log("Connected to MongoDB"))
     .catch((error) => console.error("MongoDB connection error:", error));
 
-// API endpoint to submit feedback
+// API 
 app.post('/api/feedback', async (req, res) => {
     const { rating, feedback } = req.body;
 
@@ -33,7 +32,6 @@ app.post('/api/feedback', async (req, res) => {
     }
 });
 
-// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
