@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Đảm bảo import useState và useEffect
+import React, { useState, useEffect } from 'react'; 
 const koiData = [
     { id: 1, name: 'Koi 1', type: 'thuần chủng', image: 'https://onkoi.vn/wp-content/uploads/2022/04/JPD-Fujiyama-thuc-an-35-protein-vip-8-tang-truong-on-dinh-khi-koi-truong-thanh-CA06-300x300.jpg' },
     { id: 2, name: 'Koi 2', type: 'lai F1', image: 'https://onkoi.vn/wp-content/uploads/2022/04/jpd-shori-thuc-an-vip-888-45-protein-sieu-tang-mau-va-body-CA05-300x300.jpg' },
@@ -8,7 +8,7 @@ const koiData = [
 const SearchPage = () => {
     const [filter, setFilter] = useState('all');
     const [weather, setWeather] = useState(null);
-    const [unsplashImages, setUnsplashImages] = useState([]); // Khai báo state cho hình ảnh Unsplash
+    const [unsplashImages, setUnsplashImages] = useState([]); 
 
 
     const filteredKoi = koiData.filter(koi => filter === 'all' || koi.type === filter);
@@ -21,10 +21,10 @@ const SearchPage = () => {
             setWeather(data);
         };
         const fetchUnsplashImages = async () => {
-            const unsplashKey = "_DZNVk8O4n6pDUdp8FbwTk7VSvYRH_i-r0DPbpD_82w"; // Thay thế bằng API key Unsplash của bạn
+            const unsplashKey = "_DZNVk8O4n6pDUdp8FbwTk7VSvYRH_i-r0DPbpD_82w";
             const response = await fetch(`https://api.unsplash.com/photos/random?query=koi&count=5&client_id=${unsplashKey}`);
             const data = await response.json();
-            setUnsplashImages(data); // Sử dụng setUnsplashImages để cập nhật state
+            setUnsplashImages(data); 
         };
         fetchWeather();
         fetchUnsplashImages();
@@ -59,8 +59,8 @@ const SearchPage = () => {
                     <p>Thời tiết: {weather.weather[0].description}</p>
             </div>       
             )}    
+            <h2>Hình ảnh cá koi được chăm sóc :</h2>
             <div className="unsplash-images">
-                <h2>Hình ảnh cá Koi từ Unsplash:</h2>
                 {unsplashImages.map(image => (
                     <img key={image.id} src={image.urls.small} alt={image.alt_description} />
                 ))}
