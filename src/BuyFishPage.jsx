@@ -1,3 +1,5 @@
+import { addCart } from './zustand/store';  
+import React, { useEffect, useState } from 'react'; 
 import CaKoi1 from './assets/CaKoi/koi1.jpg'
 import CaKoi2 from './assets/CaKoi/koi2.jpg'
 import CaKoi3 from './assets/CaKoi/koi3.jpg'
@@ -5,6 +7,7 @@ import './BuyFishPage.css'
 import { useStore } from './zustand/store'
 
 function BuyFishPage() {
+    const [totalPrice, setTotalPrice] = useState(0);
     const fishs = [
         {
             id: 1,
@@ -17,7 +20,8 @@ function BuyFishPage() {
             size: "97 cm",
             fish: "Cá koi Showa",
             from: "Dainichi Koi Farm",
-            thumbnail: CaKoi1
+            thumbnail: CaKoi1,
+            price: 300000, // Thêm thuộc tính price vào đây
         },
         {
             id: 2,
@@ -30,7 +34,8 @@ function BuyFishPage() {
             size: "97 cm",
             fish: "Cá koi Showa",
             from: "Dainichi Koi Farm",
-            thumbnail: CaKoi2
+            thumbnail: CaKoi2,
+            price: 300000, // Thêm thuộc tính price vào đây
         },
         {
             id: 3,
@@ -44,14 +49,21 @@ function BuyFishPage() {
             fish: "Cá koi Showa",
             from: "Dainichi Koi Farm",
             thumbnail: CaKoi3,
+            price: 300000, // Thêm thuộc tính price vào đây
         },
     ]
 
     const addCart = useStore(state => state.addCart)
+    const getTotalPrice = useStore(state => state.getTotalPrice);
 
     const handleAddCart = (item) => {
-        addCart(item)
+        addCart({ ...item, quantity: 1 }); // Thêm thuộc tính quantity mặc định là 1
     }
+
+    useEffect(() => {
+        const price = getTotalPrice(); // Lấy tổng giá từ state
+        setTotalPrice(price); // Cập nhật totalPrice
+    }, [getTotalPrice]); // Phụ thuộc vào hàm getTotalPrice
 
     return <main class="container mx-auto py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -75,7 +87,7 @@ function BuyFishPage() {
                         <p class="text-blue-600 mb-4">
                             Giá mua ngay:
                             <a class="underline" href="#">
-                                Liên hệ
+                                300.000đ
                             </a>
                         </p>
                         <button class="bg-red-600 text-white px-4 py-2 rounded" onClick={() => { handleAddCart(fishItem) }}>
