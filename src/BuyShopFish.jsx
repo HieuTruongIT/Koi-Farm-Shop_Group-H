@@ -1,9 +1,11 @@
-import React from 'react'; 
-import { useStore } from './zustand/store'; 
-import './BuyShopFish.css'; 
+import { useNavigate } from 'react-router-dom';
+import CaKoi1 from './assets/CaKoi/koi1.jpg'
+import './BuyShopFish.css'
 import { DeleteOutlined } from '@ant-design/icons';
+import { useStore } from './zustand/store';
 
 function BuyShopFish() {
+    const navigate = useNavigate();
     const cart = useStore(state => state.cart);
     const removeCart = useStore(state => state.removeCart);
     const setQuantity = useStore(state => state.setQuantity);
@@ -54,7 +56,7 @@ function BuyShopFish() {
                                 <button onClick={() => handleRemoveCart(item.id)}>
                                     <DeleteOutlined />
                                 </button>
-                            </td>
+                            </td>   
                             <td className="flex gap-5 items-center">
                                 <img alt={item.name} src={item.thumbnail} />
                                 <div>
@@ -83,7 +85,10 @@ function BuyShopFish() {
                     ))}
                 </tbody>
             </table>
-            <div className="cart-summary">
+            <button className="compare-btn" onClick={() => navigate('/compare-fish')}>
+            So sánh cá Koi
+        </button>
+        <div className="cart-summary">
                 <h2>Cộng giỏ hàng</h2>
                 <table>
                     <tr>
@@ -95,10 +100,13 @@ function BuyShopFish() {
                         <td>{totalPrice.toLocaleString()} ₫</td>
                     </tr>
                 </table>
-                <a className="checkout-btn" href="#">
+                
+            <a className="checkout-btn" href="#">
                     Tiến hành thanh toán
                 </a>
             </div>
+        
+
         </main>
     );
 }

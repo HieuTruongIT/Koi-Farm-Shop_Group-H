@@ -6,6 +6,7 @@ import FeedbackPage from './FeedbackPage';
 import CustomerProfilePage from './CustomerProfilePage';
 import BuyFishPage from './BuyFishPage';
 import BuyShopFish from './BuyShopFish';
+import CompareFish from './CompareFish'; 
 import DashboardPage from './DashboardPage';
 import InventoryPage from './InventoryPage';
 import OrdersPage from './OrdersPage';
@@ -44,6 +45,7 @@ const App = () => {
             <div className="container">
                 <Routes>
                     <Route path='/cart' element={<BuyShopFish />} />
+                    <Route path='/compare-fish' element={<CompareFish />} />
                     <Route path='/search' element={<SearchPage />} />
                     <Route path='/consignment' element={<ConsignmentPage />} />
                     <Route path='/feedback' element={<FeedbackPage />} />
