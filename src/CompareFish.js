@@ -1,13 +1,37 @@
-import React from 'react';
-import CaKoi1 from './assets/CaKoi/koi1.jpg';
-import './CompareFish.css';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useStore } from './zustand/store'; // Import trạng thái từ zustand
+import './CompareFish.css';
 
 function CompareFish() {
     const navigate = useNavigate();
+    const cart = useStore(state => state.cart); // Lấy dữ liệu giỏ hàng
+    const [sortedCart, setSortedCart] = useState(cart);
+
+    // Đồng bộ `sortedCart` với `cart` mỗi khi `cart` thay đổi
+    useEffect(() => {
+        setSortedCart(cart);
+    }, [cart]);
+
+    // Hàm sắp xếp theo tên
+    const sortByName = () => {
+        const sorted = [...sortedCart].sort((a, b) => a.name.localeCompare(b.name));
+        setSortedCart(sorted);
+    };
+
+    // Hàm sắp xếp theo giá
+    const sortByPrice = () => {
+        const sorted = [...sortedCart].sort((a, b) => a.price - b.price);
+        setSortedCart(sorted);
+    };
+
     return (
         <main className="container">
             <h2>So sánh cá Koi</h2>
+            <div className="sort-buttons">
+                <button className="sort-button" onClick={sortByName}>Sắp xếp theo tên</button>
+                <button className="sort-button" onClick={sortByPrice}>Sắp xếp theo giá</button>
+            </div>
             <table className="compare-table">
                 <thead>
                     <tr>
@@ -19,30 +43,23 @@ function CompareFish() {
                         <th>Kích thước</th>
                         <th>Giống</th>
                         <th>Nguồn gốc</th>
+                        <th>Giá</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><img src={CaKoi1} alt="Onkoi Karashi 85 cm" className="fish-image" /></td>
-                        <td>Onkoi Karashi 85 cm</td>
-                        <td>OnKoi - Quang Minh</td>
-                        <td>Đực</td>
-                        <td>2018</td>
-                        <td>85 cm</td>
-                        <td>Karashi</td>
-                        <td>Nhật Bản</td>
-                    </tr>
-                    <tr>
-                        <td><img src="https://placehold.co/50x50" alt="Onkoi Showa 97 cm" className="fish-image" /></td>
-                        <td>Onkoi Showa 97 cm</td>
-                        <td>OnKoi - Quang Minh</td>
-                        <td>Cái</td>
-                        <td>2019</td>
-                        <td>97 cm</td>
-                        <td>Showa</td>
-                        <td>Nhật Bản</td>
-                    </tr>
-                    {/* Thêm các hàng cá khác ở đây */}
+                    {sortedCart.map((item) => (
+                        <tr key={item.id}>
+                            <td><img src={item.thumbnail} alt={item.name} className="fish-image" /></td>
+                            <td>{item.name}</td>
+                            <td>{item.seller}</td>
+                            <td>{item.gender}</td>
+                            <td>{item.dob}</td>
+                            <td>{item.size}</td>
+                            <td>{item.fish}</td>
+                            <td>{item.from}</td>
+                            <td>{item.price.toLocaleString()} ₫</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             <button className="compare-btn" onClick={() => navigate('/cart')}>
