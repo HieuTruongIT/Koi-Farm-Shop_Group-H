@@ -7,6 +7,7 @@ import CustomerProfilePage from './CustomerProfilePage';
 import BuyFishPage from './BuyFishPage';
 import BuyShopFish from './BuyShopFish';
 import CompareFish from './CompareFish'; 
+import PromotionsPage from './PromotionsPage';
 import DashboardPage from './DashboardPage';
 import InventoryPage from './InventoryPage';
 import OrdersPage from './OrdersPage';
@@ -39,12 +40,14 @@ const App = () => {
                 <button><a href="/consignment">Trang Ký Gửi Cá Koi</a></button>
                 <button><a href="/feedback">Trang Đánh Giá và Phản Hồi</a></button>
                 <button><a href="/profile">Trang Hồ Sơ Khách Hàng</a></button>
+                <button><a href="/promotions">Trang Khuyến Mãi</a></button>
                 <button><a href="/dashboard">Trang Quản Trị</a></button>
             </nav>
             <div className="container">
                 <Routes>
                     <Route path='/cart' element={<BuyShopFish />} />
                     <Route path='/compare-fish' element={<CompareFish />} />
+                    <Route path="/promotions" element={<PromotionsPage/>} />
                     <Route path='/search' element={<SearchPage />} />
                     <Route path='/consignment' element={<ConsignmentPage />} />
                     <Route path='/feedback' element={<FeedbackPage />} />
