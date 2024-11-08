@@ -1,0 +1,78 @@
+/* General layout for container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styling for each promotion box */
+.bg-white {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for promotion items */
+.bg-white:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Styling for each promotion description */
+p {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Styling for the points requirement text */
+.text-gray-600 {
+    color: #6c757d;
+}
+
+/* Button styling */
+button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transition: background-color 0.3s ease;
+}
+
+/* Change the button color when hovered (although button is disabled) */
+button:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive design: Grid layout adjustments */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Margin bottom for promotion items */
+.mb-4 {
+    margin-bottom: 20px;
+}
+
+/* Tailwind-inspired responsive utility classes */
+@media (max-width: 768px) {
+    .text-2xl {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,125 @@
+/* FeedbackPage.css */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Feedback container */
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Header */
+.feedback-container h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form styling */
+.feedback-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.feedback-container label {
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+.feedback-container textarea {
+    padding: 14px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    resize: none;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.feedback-container textarea:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+/* Button */
+.feedback-container button {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.feedback-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Star Rating */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.star {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.star:hover,
+.star.selected {
+    color: #FFD700; /* Gold color for selected stars */
+}
+
+/* Footer */
+footer {
+    background-color: #8B4513; /* Red-brown color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #FFD700; /* Gold color */
+}
+
+footer p {
+    font-size: 16px;
+}
+
+/* Thank you section */
+.thank-you-section {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    width: 100%;
+}

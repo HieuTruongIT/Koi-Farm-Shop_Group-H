@@ -1,0 +1,232 @@
+/* General Styles */
+.intro-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.intro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #7b0404;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures the header stays on top */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #f1c40f; /* Highlighted logo color */
+}
+
+.nav-bar {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar a {
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-bar a:hover {
+    color: #7b0404;
+    background-color: #f1c40f; /* Hover effect */
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Common styles for both buttons */
+.login-button, .register-button {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* Login Button */
+.login-button {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.login-button:hover {
+    background-color: #fff;
+    color: #7b0404;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Slight hover effect */
+}
+
+.login-button:active {
+    background-color: #e74c3c; /* Dark red when clicked */
+    color: #fff;
+    transform: translateY(1px); /* Button press effect */
+}
+
+/* Register Button */
+.register-button {
+    background-color: #f39c12; /* Yellow background */
+    color: #fff;
+    border: none;
+}
+
+.register-button:hover {
+    background-color: #f1c40f; /* Lighter yellow on hover */
+    color: #7b0404;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.register-button:active {
+    background-color: #e67e22; /* Orange color on click */
+    color: #fff;
+    transform: translateY(1px);
+}
+
+/* Body Content */
+.intro-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Evenly distribute space */
+    gap: 30px; /* Spacing between image and text */
+    padding: 50px 40px;
+    background-color: #fff; /* Set background color to white */
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Image Container */
+.image-container {
+    flex: 1; /* Adjusts size relative to text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%; /* Limits width */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Content */
+.content {
+    flex: 2; /* Gives text more space than image */
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #7b0404;
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Horizontal Team List */
+.team {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    gap: 15px;
+    align-items: center;
+}
+
+.team p {
+    font-weight: bold;
+    color: #7b0404;
+    flex-basis: 100%; /* Takes full width on new row */
+    margin-bottom: 10px;
+}
+
+.team ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Spacing between names */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.team li {
+    font-size: 1rem;
+    color: #fff;
+    background-color: #e67e22;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: default;
+}
+
+.team li:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.intro-footer {
+    background-color: #7b0404;
+    color: #f1f1f1;
+    padding: 20px 30px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    margin-bottom: 10px;
+}
+
+.intro-footer p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #f1c40f;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
