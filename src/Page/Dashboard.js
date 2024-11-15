@@ -11,6 +11,7 @@ ChartJS.register( CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend
   const [inventory, setInventory]=useState(0);
   const [customers, setCustomors]=useState(0);
   const [revenue, setRevenue]=useState(0);
+  
   return (
     <div>
       <Space size={40} direction="vertical">

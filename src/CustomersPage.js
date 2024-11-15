@@ -8,7 +8,7 @@ import Customers from "./Page/Customers";
 function CustomersPage(){
   return (<div className="DashboardPage">
     <AppHeader/>
-    <Space class="SideMenuAndpageContent">
+    <Space className="SideMenuAndpageContent">
       <SideMenu></SideMenu>
       <ContentCustomers>
       </ContentCustomers>
