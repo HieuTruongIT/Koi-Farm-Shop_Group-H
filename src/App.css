@@ -99,6 +99,10 @@ h1 {
   margin-bottom: 20px; 
   font-size: 50px;
 }
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
 /* -----SearchPage-----*/
 
 .koi-label {
@@ -349,4 +353,30 @@ button:hover {
 }
 .SideMenuVertical{
   height: 100%;
+}
+.weather-info {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.unsplash-images {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.unsplash-images h2 {
+  margin-bottom: 15px; /* Khoảng cách giữa tiêu đề và hình ảnh */
+}
+
+.unsplash-images {
+  display: flex; /* Sử dụng flexbox để xếp hình ảnh theo hàng ngang */
+  justify-content: center; /* Căn giữa hình ảnh */
+  flex-wrap: wrap; /* Cho phép hình ảnh xuống hàng nếu không đủ chỗ */
+  gap: 10px; /* Khoảng cách giữa các hình ảnh */
+}
+
+.unsplash-images img {
+  height: 100px;
+  width: 200px; /* Đặt chiều rộng cố định cho hình ảnh Unsplash */
+  height: auto; /* Đảm bảo tỷ lệ hình ảnh đúng */
 }

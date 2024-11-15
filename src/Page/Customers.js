@@ -22,6 +22,10 @@ import { Table, Typography, Space } from "antd"
             title:"Địa Chỉ",
             dataIndex:"địa chỉ",
           },
+          {
+            title:"Điểm Thưởng",
+            dataIndex:"Điểm Thưởng",
+          },
         ]}
       ></Table>
     </Space>
