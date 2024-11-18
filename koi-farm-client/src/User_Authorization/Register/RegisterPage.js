@@ -4,7 +4,7 @@ import './Register.css';
 import Logo from '../../assets/Register_image.jpg';
 
 const RegisterPage = () => {
-    const [userData, setUserData] = useState({
+    const [userData, setUserData] = useState({  // Sửa lỗi ở đây
         username: '',
         email: '',
         password: '',
@@ -16,7 +16,7 @@ const RegisterPage = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUserData({
+        setUserData({   // Sửa lỗi ở đây
             ...userData,
             [name]: value
         });
@@ -25,7 +25,6 @@ const RegisterPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        // Kiểm tra nếu mật khẩu và xác nhận mật khẩu khớp nhau
         if (userData.password !== userData.confirmPassword) {
             setErrorMessage("Passwords don't match");
             return;
@@ -44,20 +43,20 @@ const RegisterPage = () => {
                 })
             });
     
-            const data = await response.text();
-            console.log('API Response:', data);  // Log phản hồi từ API
+            const responseData = await response.json();
     
             if (response.ok) {
-                // Đăng ký thành công, chuyển hướng về trang Intro
-                navigate('/intro');
+                setErrorMessage('');
+                navigate('/');  // Chuyển hướng về trang chủ nếu thành công
             } else {
-                setErrorMessage(data);  // Hiển thị thông báo lỗi
+                setErrorMessage(responseData.message || "Error occurred while registering");
+                console.error('Error from backend:', responseData);
             }
         } catch (error) {
             setErrorMessage("Error occurred while registering");
-            console.log("Error:", error);  // Log lỗi nếu có
+            console.error("Error:", error);
         }
-    };    
+    };
 
     return (
         <div className="register-page">
