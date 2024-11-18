@@ -6,17 +6,16 @@ const ConsignmentPage = () => {
     const [koiAge, setKoiAge] = useState('');
     const [koiSize, setKoiSize] = useState('');
     const [koiPurpose, setKoiPurpose] = useState('bán');
-    const [message, setMessage] = useState(''); 
+    const [message, setMessage] = useState('');
 
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Ngăn chặn tải lại trang
         const koiData = {
             koiName,
             koiType,
             koiAge,
             koiSize,
-            koiPurpose
+            koiPurpose,
         };
 
         try {
@@ -28,9 +27,10 @@ const ConsignmentPage = () => {
                 },
                 body: JSON.stringify(koiData),
             });
+
             const result = await response.json();
 
-            // Hiển thị thông báo thành công
+            // Hiển thị thông báo thành công hoặc lỗi
             if (response.ok) {
                 setMessage(`Gửi thành công: ${result.koiName}, Loại: ${result.koiType}, Tuổi: ${result.koiAge}, Kích thước: ${result.koiSize} cm, Mục đích: ${result.koiPurpose}`);
                 setKoiName('');
@@ -43,6 +43,7 @@ const ConsignmentPage = () => {
             }
         } catch (error) {
             setMessage('Đã có lỗi xảy ra khi gửi dữ liệu!');
+            console.error(error);
         }
     };
 
@@ -81,7 +82,6 @@ const ConsignmentPage = () => {
             </form>
 
             {message && <p>{message}</p>}
-
         </div>
     );
 };

@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './PromotionsPage.css'; // Thêm CSS nếu cần thiết
 
 function PromotionsPage() {
-    // Giả lập danh sách khuyến mãi
-    const promotions = [
-        { id: 1, description: 'Giảm 10% cho đơn hàng từ 500.000đ', pointsRequired: 50 },
-        { id: 2, description: 'Giảm 15% cho đơn hàng từ 1.000.000đ', pointsRequired: 100 },
-        { id: 3, description: 'Giảm 20% cho đơn hàng từ 2.000.000đ', pointsRequired: 200 },
-        { id: 4, description: 'Giảm 30% cho đơn hàng từ 2.500.000đ', pointsRequired: 300 },
-    ];
+    const [promotions, setPromotions] = useState([]); // Lưu trữ danh sách khuyến mãi
+    const [loading, setLoading] = useState(true); // Trạng thái tải dữ liệu
+    const [error, setError] = useState(null); // Trạng thái lỗi
+
+    // Hàm gọi API từ backend
+    const fetchPromotions = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/api/promotions'); // URL của API
+            if (!response.ok) {
+                throw new Error('Failed to fetch promotions');
+            }
+            const data = await response.json();
+            setPromotions(data); // Cập nhật danh sách khuyến mãi
+        } catch (err) {
+            setError(err.message); // Cập nhật lỗi
+        } finally {
+            setLoading(false); // Kết thúc tải dữ liệu
+        }
+    };
+
+    useEffect(() => {
+        fetchPromotions(); // Gọi API khi component được mount
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <main className="container mx-auto py-8">

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +38,8 @@ public class ConsignmentPageTest {
 
         submitButton.click();
 
-        Alert alert = new WebDriverWait(driver, 10)
+        // Sử dụng Duration cho WebDriverWait
+        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.alertIsPresent());
 
         String alertText = alert.getText();
