@@ -1,14 +1,15 @@
 package com.example.koi.controller;
 
-import com.example.koi.model.Inventory;  // Đảm bảo bạn import đúng Inventory model
+import com.example.koi.model.Inventory;  
 import com.example.koi.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;  // Import List từ java.util
+import java.util.List;  
 
+import java.util.Map;
 @RestController
 @RequestMapping("/api/dashboard")
 public class DashboardController {
@@ -16,21 +17,27 @@ public class DashboardController {
     @Autowired
     private DashboardService dashboardService;
 
-    // báo cáo doanh thu
+    // Báo cáo doanh thu
     @GetMapping("/revenue")
     public double getRevenue() {
         return dashboardService.getTotalRevenue();
     }
 
-    // báo cáo tồn kho
+    // Báo cáo tồn kho
     @GetMapping("/inventory")
     public List<Inventory> getInventory() {
         return dashboardService.getInventory();
     }
 
-    // báo cáo tổng số đơn hàng
+    // Báo cáo tổng số đơn hàng
     @GetMapping("/orders")
     public long getTotalOrders() {
         return dashboardService.getTotalOrders();
+    }
+
+    // Báo cáo doanh thu theo tháng
+    @GetMapping("/revenueByMonth")
+    public List<Map<String, Object>> getRevenueByMonth() {
+        return dashboardService.getRevenueByMonth();
     }
 }

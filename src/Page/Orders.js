@@ -1,34 +1,72 @@
-import { Table, Typography, Space } from "antd"
+import React, { useEffect, useState } from "react";
+import { Table, Typography, Space } from "antd";
+import axios from "axios";
 
- function Orders() {
+function Orders() {
+  const [orders, setOrders] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+
+  
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/orders"); 
+        setOrders(response.data); 
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchOrders(); 
+  }, []);
+
+  
+  const formatOrderDate = (date) => {
+    const orderDate = new Date(date);
+    return orderDate.toLocaleDateString(); 
+  };
+
   return (
     <Space size={30} direction="vertical">
       <Typography.Title level={4}>Orders</Typography.Title>
       <Table
+        loading={loading} 
+        dataSource={orders} 
         columns={[
           {
-            title:"Tên Cá",
-            dataIndex:"tên cá",
+            title: "Order ID",
+            dataIndex: "id", 
+            key: "id",
           },
           {
-            title:"Loại Cá",
-            dataIndex:"loại cá",
+            title: "Customer ID",
+            dataIndex: "customerId", 
+            key: "customerId",
           },
           {
-            title:"Tuổi",
-            dataIndex:"tuổi",
+            title: "Order Date",
+            dataIndex: "orderDate", 
+            key: "orderDate",
+            render: (text) => formatOrderDate(text), 
           },
           {
-            title:"Kích Thước",
-            dataIndex:"kich thước",
+            title: "Total Amount",
+            dataIndex: "totalAmount", 
+            key: "totalAmount",
+            render: (text) => `$${text.toFixed(2)}`, 
           },
           {
-            title:"Giá",
-            dataIndex:"giá",
+            title: "Status",
+            dataIndex: "status", 
+            key: "status",
           },
         ]}
-      ></Table>
+        rowKey="id" 
+      />
     </Space>
-  )
+  );
 }
+
 export default Orders;

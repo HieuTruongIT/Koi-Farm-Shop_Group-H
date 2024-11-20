@@ -12,7 +12,6 @@ public class Customer {
     private String email;
     private String phone;
     private String address;
-    private String status;  // Ví dụ: "Active", "Inactive"
 
     // Getters and Setters
     public String getId() {
@@ -55,11 +54,4 @@ public class Customer {
         this.address = address;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
