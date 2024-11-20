@@ -6,16 +6,45 @@ const ConsignmentPage = () => {
     const [koiAge, setKoiAge] = useState('');
     const [koiSize, setKoiSize] = useState('');
     const [koiPurpose, setKoiPurpose] = useState('bán');
+    const [message, setMessage] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert(`Gửi thành công: ${koiName}, Loại: ${koiType}, Tuổi: ${koiAge}, Kích thước: ${koiSize} cm, Mục đích: ${koiPurpose}`);
-        // Reset form
-        setKoiName('');
-        setKoiType('thuần chủng');
-        setKoiAge('');
-        setKoiSize('');
-        setKoiPurpose('bán');
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Ngăn chặn tải lại trang
+        const koiData = {
+            koiName,
+            koiType,
+            koiAge,
+            koiSize,
+            koiPurpose,
+        };
+
+        try {
+            // Gửi dữ liệu tới backend
+            const response = await fetch('http://localhost:5000/api/consignment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(koiData),
+            });
+
+            const result = await response.json();
+
+            // Hiển thị thông báo thành công hoặc lỗi
+            if (response.ok) {
+                setMessage(`Gửi thành công: ${result.koiName}, Loại: ${result.koiType}, Tuổi: ${result.koiAge}, Kích thước: ${result.koiSize} cm, Mục đích: ${result.koiPurpose}`);
+                setKoiName('');
+                setKoiType('thuần chủng');
+                setKoiAge('');
+                setKoiSize('');
+                setKoiPurpose('bán');
+            } else {
+                setMessage('Đã có lỗi xảy ra khi gửi dữ liệu!');
+            }
+        } catch (error) {
+            setMessage('Đã có lỗi xảy ra khi gửi dữ liệu!');
+            console.error(error);
+        }
     };
 
     return (
@@ -51,6 +80,8 @@ const ConsignmentPage = () => {
                 </label>
                 <button type="submit">Gửi Cá Koi</button>
             </form>
+
+            {message && <p>{message}</p>}
         </div>
     );
 };
