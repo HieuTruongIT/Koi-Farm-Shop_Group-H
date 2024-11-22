@@ -1,0 +1,113 @@
+/* Container Styling */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Left Image Styling */
+.login-container .image-container {
+    flex: 1;
+    background-image: url('https://via.placeholder.com/400'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    border-radius: 12px;
+}
+
+/* Right Form Styling */
+.login-container .form-container {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Styling */
+.login-container h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Label Styling */
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Input Styling */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Input Focus Styling */
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Styling */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Button Active Styling */
+button:active {
+    background-color: #003f7f;
+}
+
+/* Adding responsiveness */
+@media (max-width: 900px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-container .image-container {
+        display: none; /* Hide the image on smaller screens */
+    }
+
+    .login-container .form-container {
+        padding: 20px;
+    }
+}
+

@@ -1,0 +1,96 @@
+/* Login container and layout */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #5e0b0b; /* Dark red background */
+    font-family: 'Arial', sans-serif;
+}
+
+.content-wrapper {
+    display: flex;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+}
+
+.image-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.image-section img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-section {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #5e0b0b;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #5e0b0b;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    font-size: 1rem;
+}
+
+/* Styling the Login button */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5e0b0b; /* Dark red button */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-button:hover {
+    background-color: #6e1c1c;
+}
+
+.login-button:active {
+    background-color: #4c0a0a;
+}
+
+/* Optional: Remove default link styles */
+.link-button {
+    text-decoration: none;
+    display: block;
+}

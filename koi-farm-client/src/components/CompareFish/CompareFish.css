@@ -1,0 +1,130 @@
+/* Overall container */
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3b0000, #660000); /* Gradient background with main color */
+}
+
+/* Register container - splits into two sections */
+.register-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+/* Image section */
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 30px;
+    background-color: #f9f9f9; /* Soft background color for the image area */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden; /* Ensures the image is contained neatly */
+}
+
+/* Styling the image */
+.logo-image {
+    width: 100%; /* Image takes up full width of the container */
+    height: auto;
+    max-width: 400px; /* Keeps the image size proportional but constrained */
+    border-radius: 12px;
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow around the image */
+}
+
+/* Form section */
+.form-section {
+    flex: 1.5;
+    padding-left: 50px;
+}
+
+.form-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #3b0000; /* Main color for heading */
+    margin-bottom: 30px;
+}
+
+/* Form input and label styling */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.form-group input:focus {
+    border-color: #3b0000; /* Main color for focus effect */
+    background-color: #f2d7d7; /* Light red when focused */
+}
+
+/* Button styling */
+.submit-button {
+    padding: 15px 30px;
+    background-color: #3b0000; /* Main color for button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #660000; /* Darker red on hover */
+    transform: translateY(-3px);
+}
+
+.submit-button:active {
+    transform: translateY(2px); /* Pressed button effect */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .image-section {
+        display: none; /* Hide the image section on mobile */
+    }
+
+    .form-section {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .form-section h2 {
+        font-size: 26px; /* Smaller heading on mobile */
+    }
+}
