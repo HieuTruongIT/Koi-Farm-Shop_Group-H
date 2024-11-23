@@ -1,0 +1,157 @@
+/* Main container for the Orders page */
+.orders-container {
+    background-color: #7b0404; /* Red background */
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the main container */
+.orders-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography style for the title */
+.orders-container .ant-typography {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Styling the search box and filter buttons */
+.orders-container .ant-input,
+.orders-container .ant-select,
+.orders-container .ant-btn {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ff7043;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect on form elements */
+.orders-container .ant-input:hover,
+.orders-container .ant-select:hover,
+.orders-container .ant-btn:hover {
+    background-color: #ff7043;
+    border-color: #ff5722;
+}
+
+/* Space between the search filters and the table */
+.orders-container .ant-space {
+    margin-bottom: 30px;
+}
+
+/* The table wrapper to make the table more readable */
+.orders-table {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styles */
+.orders-table .ant-table {
+    background-color: #fff !important;
+}
+
+.orders-table .ant-table-thead > tr > th {
+    background-color: #7b0404; /* Red header background */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+}
+
+.orders-table .ant-table-tbody > tr > td {
+    text-align: center;
+    padding: 12px;
+}
+
+/* Image styles inside the table */
+.orders-table .ant-table-tbody > tr > td img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+/* Styling the tags */
+.orders-table .ant-tag {
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+/* Styling tag colors for stock and out-of-stock statuses */
+.ant-tag-green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.ant-tag-red {
+    background-color: #FF5722;
+    color: white;
+}
+
+/* Action buttons (Edit, Delete) style */
+.orders-table .ant-btn-link {
+    color: #ff7043;
+}
+
+.orders-table .ant-btn-link:hover {
+    color: #ff5722;
+}
+
+/* Pagination styling */
+.orders-table .ant-table-pagination {
+    text-align: center;
+    padding-top: 15px;
+}
+
+/* Styling for buttons */
+.ant-btn-primary {
+    background-color: #ff4d4f;
+    border-color: #ff4d4f;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ant-btn-primary:hover {
+    background-color: #e63e3e;
+    border-color: #e63e3e;
+}
+
+/* Additional styling for modal buttons */
+.ant-btn {
+    border-radius: 8px;
+}
+
+/* Customize form input fields */
+.ant-input,
+.ant-select {
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .orders-container {
+        padding: 15px;
+    }
+
+    .orders-table {
+        padding: 10px;
+    }
+
+    .orders-table .ant-table-thead > tr > th,
+    .orders-table .ant-table-tbody > tr > td {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,94 @@
+/* Basic Page Styling */
+.consignment-page {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #1a5276; /* Sử dụng màu xanh đậm hơn */
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+.consignment-form {
+    background-color: #f5f7fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+.consignment-form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #1b4f72; /* Làm chữ đậm và dễ nhìn hơn */
+}
+
+.consignment-form input,
+.consignment-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.consignment-form button {
+    background-color: #2471a3; /* Màu xanh đậm hơn */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.consignment-form button:hover {
+    background-color: #1b4f72; /* Tông màu tối hơn khi hover */
+}
+
+/* Koi List Styling */
+.koi-list {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.koi-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.koi-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.koi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.koi-card h3 {
+    font-size: 20px;
+    color: #1c2833; /* Làm chữ nổi bật hơn */
+    margin-bottom: 10px;
+}
+
+.koi-card p {
+    font-size: 16px;
+    color: #1b4f72; /* Sử dụng màu xanh đậm hơn cho văn bản */
+    margin-bottom: 5px;
+}

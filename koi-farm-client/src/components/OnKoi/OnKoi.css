@@ -4,6 +4,7 @@
     color: #333;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header */
@@ -17,14 +18,34 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensures the header stays on top */
+    z-index: 1000;
+    animation: slideInDown 0.6s ease-out; /* Header sliding animation */
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #f1c40f; /* Highlighted logo color */
+    color: #f1c40f;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .nav-bar {
@@ -43,15 +64,15 @@
 
 .nav-bar a:hover {
     color: #7b0404;
-    background-color: #f1c40f; /* Hover effect */
+    background-color: #f1c40f;
 }
 
+/* Auth Buttons */
 .auth-buttons {
     display: flex;
     gap: 15px;
 }
 
-/* Common styles for both buttons */
 .login-button, .register-button {
     padding: 12px 18px;
     font-size: 1rem;
@@ -62,7 +83,6 @@
     border: none;
 }
 
-/* Login Button */
 .login-button {
     background-color: transparent;
     border: 2px solid #fff;
@@ -73,56 +93,79 @@
     background-color: #fff;
     color: #7b0404;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px); /* Slight hover effect */
+    transform: translateY(-4px); /* Slight hover lift */
 }
 
 .login-button:active {
-    background-color: #e74c3c; /* Dark red when clicked */
+    background-color: #e74c3c;
     color: #fff;
-    transform: translateY(1px); /* Button press effect */
+    transform: translateY(2px); /* Button press effect */
 }
 
-/* Register Button */
 .register-button {
-    background-color: #f39c12; /* Yellow background */
+    background-color: #f39c12;
     color: #fff;
     border: none;
 }
 
 .register-button:hover {
-    background-color: #f1c40f; /* Lighter yellow on hover */
+    background-color: #f1c40f;
     color: #7b0404;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
 
 .register-button:active {
-    background-color: #e67e22; /* Orange color on click */
+    background-color: #e67e22;
     color: #fff;
-    transform: translateY(1px);
+    transform: translateY(2px);
 }
 
 /* Body Content */
 .intro-body {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Evenly distribute space */
-    gap: 30px; /* Spacing between image and text */
+    justify-content: space-between;
+    gap: 30px;
     padding: 50px 40px;
-    background-color: #fff; /* Set background color to white */
+    background-color: #fff;
     border-radius: 12px;
     margin: 20px auto;
     max-width: 1200px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 1s ease-out; /* Fade-in with upward motion */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Image Container */
 .image-container {
-    flex: 1; /* Adjusts size relative to text */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 40%; /* Limits width */
+    max-width: 40%;
+    animation: fadeInRight 1s ease-out; /* Image fade-in from right */
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .image-container img {
@@ -134,12 +177,24 @@
 
 /* Text Content */
 .content {
-    flex: 2; /* Gives text more space than image */
+    flex: 2;
     padding: 20px 30px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
     text-align: left;
+    animation: fadeInLeft 1s ease-out; /* Content fade-in from left */
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .content h2 {
@@ -159,15 +214,16 @@
 .team {
     margin-top: 20px;
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping if needed */
+    flex-wrap: wrap;
     gap: 15px;
     align-items: center;
+    animation: fadeInUp 1s ease-out;
 }
 
 .team p {
     font-weight: bold;
     color: #7b0404;
-    flex-basis: 100%; /* Takes full width on new row */
+    flex-basis: 100%;
     margin-bottom: 10px;
 }
 
@@ -176,8 +232,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 10px; /* Spacing between names */
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .team li {
@@ -203,6 +259,18 @@
     text-align: center;
     margin-top: 40px;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out; /* Footer fade-in from bottom */
+}
+
+@keyframes fadeInUpFooter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .footer-content {

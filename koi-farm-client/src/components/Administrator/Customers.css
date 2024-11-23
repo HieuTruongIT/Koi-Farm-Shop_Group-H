@@ -1,0 +1,134 @@
+/* Customers page styling */
+.customers-container {
+    background-color: #f2f2f2; /* Light grey background for the container */
+    padding: 40px 30px;
+    border-radius: 16px;
+    color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* Typography for page title */
+.page-title {
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+/* Search and filter section */
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.search-input {
+    width: 350px;
+    border-radius: 10px;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.filter-select {
+    width: 180px;
+    border-radius: 10px;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.filter-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e63e3e;
+    transform: translateY(-2px); /* subtle hover effect */
+}
+
+.filter-btn:focus {
+    outline: none;
+}
+
+/* Table styling */
+.customers-table .ant-table {
+    background-color: #fff !important;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.customers-table .ant-table-thead > tr > th {
+    background-color: #7b0404;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 18px;
+    font-size: 16px;
+}
+
+.customers-table .ant-table-tbody > tr > td {
+    text-align: center;
+    padding: 14px;
+    font-size: 15px;
+}
+
+.customers-table .ant-table-tbody > tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+.customers-table .ant-table-tbody > tr:hover {
+    background-color: #f0f0f0; /* Hover effect */
+}
+
+/* Tag styling for points */
+.ant-tag-green {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.ant-tag-red {
+    background-color: #FF5722;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .customers-container {
+        padding: 20px 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-input, .filter-select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .filter-btn {
+        width: 100%;
+    }
+
+    .customers-table .ant-table-thead > tr > th,
+    .customers-table .ant-table-tbody > tr > td {
+        padding: 10px;
+    }
+}

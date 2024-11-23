@@ -1,0 +1,113 @@
+/* Ensure that body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Set a default font */
+}
+
+/* Main wrapper for the whole layout */
+.admin-layout {
+  display: flex;
+  height: 100%;
+  overflow: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Side Menu Styles */
+.SideMenu {
+  width: 250px;  /* Width of the side menu */
+  position: fixed;
+  top: 0;
+  left: 0; /* Sidebar is on the left side */
+  bottom: 0;
+  background-color: #fff; /* White background */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow for separation */
+  padding-top: 20px;
+  z-index: 10;
+  transition: width 0.3s ease-in-out; /* Smooth transition for width */
+}
+
+.SideMenu:hover {
+  width: 280px; /* Expand when hovered */
+}
+
+.SideMenu .ant-menu {
+  background-color: transparent; /* Remove default background color from Ant Design menu */
+  border-right: none; /* Remove the right border of the menu */
+}
+
+.SideMenu .ant-menu-item {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #333; /* Default text color */
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+.SideMenu .ant-menu-item:hover {
+  background-color: #1890ff; /* Blue hover effect */
+  color: #fff; /* Change text color on hover */
+}
+
+/* Active state for selected menu item */
+.SideMenu .ant-menu-item-selected {
+  background-color: #1890ff !important; /* Maintain blue color for active state */
+  color: white !important; /* Ensure text color changes when active */
+}
+
+/* Main content (to the right of the menu) */
+.admin-content {
+  margin-left: 250px; /* Space for the left sidebar */
+  padding: 20px;
+  flex: 1;  /* Ensure the content section grows to take remaining space */
+  background-color: #f4f4f4; /* Light background */
+  min-height: 100vh; /* Ensure content fills the screen */
+  transition: margin-left 0.3s ease, padding 0.3s ease; /* Smooth transition for content */
+}
+
+.admin-content h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-content p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Hover effect for buttons */
+button {
+  padding: 10px 15px;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #40a9ff; /* Lighter blue on hover */
+  transform: scale(1.05); /* Slight scale up for interactive effect */
+}
+
+/* For smaller screens, make the sidebar collapsible */
+@media (max-width: 768px) {
+  .SideMenu {
+    width: 80px; /* Collapse the menu on smaller screens */
+  }
+  
+  .admin-content {
+    margin-left: 80px; /* Adjust content to fit the collapsed menu */
+  }
+
+  .SideMenu .ant-menu-item {
+    font-size: 14px;
+  }
+
+  .SideMenu .ant-menu-item-selected {
+    background-color: #1890ff !important;
+    color: white !important;
+  }
+}

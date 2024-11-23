@@ -3,32 +3,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    overflow: hidden;
 }
 
 /* Left Image Styling */
 .login-container .image-container {
     flex: 1;
-    background-image: url('https://via.placeholder.com/400'); /* Replace with your image URL */
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    border-radius: 12px;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 0 0 12px;
+    overflow: hidden;
+}
+
+.login-container .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* Right Form Styling */
 .login-container .form-container {
     flex: 1;
-    padding: 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #ffffff;
+    border-radius: 0 12px 12px 0;
 }
 
 /* Header Styling */
@@ -83,31 +93,45 @@ button {
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Button Hover Styling */
-button:hover {
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
-/* Button Active Styling */
-button:active {
-    background-color: #003f7f;
+/* Success and Error Messages */
+.success-message {
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Adding responsiveness */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .login-container {
         flex-direction: column;
     }
 
     .login-container .image-container {
-        display: none; /* Hide the image on smaller screens */
+        display: none;
     }
 
     .login-container .form-container {
         padding: 20px;
     }
 }
-

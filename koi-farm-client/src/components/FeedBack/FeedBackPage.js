@@ -5,28 +5,20 @@ import './FeedBackPage.css';
 const FeedbackPage = () => {
     const [feedback, setFeedback] = useState('');
     const [rating, setRating] = useState(0); 
+    const [successMessage, setSuccessMessage] = useState(false);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        try {
-            const response = await fetch('http://localhost:5000/api/feedback', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ rating, feedback }),
-            });
+        // Hiển thị thông báo gửi phản hồi thành công
+        setSuccessMessage(true);
 
-            if (response.ok) {
-                alert("Thank you for your feedback!");
-                setFeedback('');
-                setRating(0);
-            } else {
-                alert("Failed to submit feedback.");
-            }
-        } catch (error) {
-            console.error("Error submitting feedback:", error);
-            alert("An error occurred while submitting feedback.");
-        }
+        // Reset form sau khi gửi
+        setFeedback('');
+        setRating(0);
+
+        // Ẩn thông báo sau 3 giây
+        setTimeout(() => setSuccessMessage(false), 3000);
     };
 
     return (
@@ -50,6 +42,9 @@ const FeedbackPage = () => {
                     </label>
                     <button type="submit">Gửi Phản Hồi</button>
                 </form>
+                {successMessage && (
+                    <div className="success-banner">Gửi phản hồi thành công!</div>
+                )}
             </div>
 
             <footer>

@@ -3,12 +3,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #7b0404; /* Màu nền đỏ nâu */
+    color: #fff; /* Màu chữ trắng cho tương phản */
 }
 
 h1, h2 {
     text-align: center;
-    color: #333;
+    color: #fff; /* Đổi màu chữ thành trắng */
 }
 
 .filter-container {
@@ -19,13 +20,15 @@ h1, h2 {
 .koi-label {
     font-size: 18px;
     margin-right: 10px;
+    color: #fff; /* Màu chữ trắng */
 }
 
 select {
     padding: 5px;
     font-size: 16px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
+    color: #333;
 }
 
 /* General Layout */
@@ -50,7 +53,9 @@ h1 {
     width: 60%;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #333;
 }
 
 /* Filter Dropdown */
@@ -63,7 +68,9 @@ h1 {
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #333;
 }
 
 /* Koi Items */
@@ -87,6 +94,7 @@ h1 {
 
 .koi-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng hover */
 }
 
 .koi-item img {
@@ -95,17 +103,19 @@ h1 {
     border-radius: 6px;
 }
 
+/* Weather Info */
 .weather-info {
     margin-top: 30px;
     text-align: center;
     font-size: 16px;
-    color: #555;
+    color: #fff; /* Màu chữ trắng */
 }
+
 /* Slideshow Styles */
 .slideshow-container {
     position: relative;
-    width: 90%; /* Increased the width */
-    max-width: 1500px; /* Increased max-width for larger screens */
+    width: 90%;
+    max-width: 1500px;
     height: 450px;
     margin: 20px auto;
     border-radius: 8px;
@@ -151,6 +161,6 @@ h1 {
 /* Responsiveness */
 @media (max-width: 600px) {
     .slideshow-container {
-        width: 95%; /* Reduce the width slightly on small screens */
+        width: 95%;
     }
 }

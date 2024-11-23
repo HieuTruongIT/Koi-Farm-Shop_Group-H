@@ -1,96 +1,150 @@
-/* Login container and layout */
-.login-container {
+/* Main container */
+.login-page {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: #5e0b0b; /* Dark red background */
+    background: url('../../assets/Login_Image.jpg') no-repeat center center fixed; /* Full-screen background image */
+    background-size: cover; /* Ensures the image covers the entire screen */
     font-family: 'Arial', sans-serif;
 }
 
-.content-wrapper {
+/* Login container layout */
+.login-container {
     display: flex;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 80%;
     max-width: 900px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
+/* Image section */
 .image-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
+    flex: 1;
+    background-color: #e3e6ed;
 }
 
-.image-section img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+/* Form section */
 .form-section {
-    padding: 20px 40px;
+    flex: 1;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+/* Header styling */
 .form-section h2 {
     margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #5e0b0b;
+    color: #5e0b0b; /* Red-brown color for header */
+    font-size: 24px;
     text-align: center;
     font-weight: bold;
 }
 
+/* Form group */
 .form-group {
     margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: #5e0b0b;
-    font-weight: 600;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
 }
 
 .form-group input {
     width: 100%;
     padding: 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #f8f8f8;
-    font-size: 1rem;
+    border-radius: 4px;
+    transition: border-color 0.3s;
 }
 
-/* Styling the Login button */
-.login-button {
+.form-group input:focus {
+    border-color: #5b8ef2;
+    outline: none;
+}
+
+.success-message {
+    background-color: #0eed33 !important; /* Nền xanh */
+    color: #ffffff !important; /* Chữ trắng */
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px; /* Bo góc */
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+}
+
+/* Submit button */
+.submit-button {
     width: 100%;
     padding: 12px;
-    background-color: #5e0b0b; /* Dark red button */
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    color: white;
+    font-size: 18px;
     font-weight: bold;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    background-color: #5e0b0b; /* Dark red-brown */
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.login-button:hover {
+.submit-button:hover {
     background-color: #6e1c1c;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.login-button:active {
+.submit-button:active {
     background-color: #4c0a0a;
+    box-shadow: none;
 }
 
-/* Optional: Remove default link styles */
-.link-button {
+/* Footer links */
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-links .link {
+    color: #5e0b0b;
     text-decoration: none;
-    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.footer-links .link:hover {
+    color: #388e3c; /* Green color on hover */
+}
+
+/* Optional: Optional error or success message styling */
+.message {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }

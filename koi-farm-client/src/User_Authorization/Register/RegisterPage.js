@@ -4,7 +4,7 @@ import './Register.css';
 import Logo from '../../assets/Register_image.jpg';
 
 const RegisterPage = () => {
-    const [userData, setUserData] = useState({  // Sửa lỗi ở đây
+    const [userData, setUserData] = useState({
         username: '',
         email: '',
         password: '',
@@ -12,50 +12,39 @@ const RegisterPage = () => {
     });
 
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const [showLoginPrompt, setShowLoginPrompt] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUserData({   // Sửa lỗi ở đây
+        setUserData({
             ...userData,
             [name]: value
         });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         if (userData.password !== userData.confirmPassword) {
             setErrorMessage("Passwords don't match");
+            setSuccessMessage('');
             return;
         }
-    
-        try {
-            const response = await fetch('http://localhost:8080/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: userData.username,
-                    email: userData.email,
-                    password: userData.password
-                })
-            });
-    
-            const responseData = await response.json();
-    
-            if (response.ok) {
-                setErrorMessage('');
-                navigate('/');  // Chuyển hướng về trang chủ nếu thành công
-            } else {
-                setErrorMessage(responseData.message || "Error occurred while registering");
-                console.error('Error from backend:', responseData);
-            }
-        } catch (error) {
-            setErrorMessage("Error occurred while registering");
-            console.error("Error:", error);
-        }
+
+        // Simulate registration success
+        setSuccessMessage('Registration successful!');
+        setErrorMessage('');
+        setShowLoginPrompt(true);
+    };
+
+    const handleLoginRedirect = () => {
+        navigate('/login');
+    };
+
+    const handleHomeRedirect = () => {
+        navigate('/');
     };
 
     return (
@@ -67,6 +56,7 @@ const RegisterPage = () => {
                 <div className="form-section">
                     <h2>Create an Account</h2>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    {successMessage && <p className="success-message">{successMessage}</p>}
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
@@ -118,6 +108,16 @@ const RegisterPage = () => {
                         </div>
                         <button type="submit" className="submit-button">Register</button>
                     </form>
+
+                    {showLoginPrompt && (
+                        <div className="login-prompt">
+                            <p>Would you like to log in now?</p>
+                            <div className="prompt-buttons">
+                                <button className="yes-button" onClick={handleLoginRedirect}>Yes</button>
+                                <button className="no-button" onClick={handleHomeRedirect}>No</button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -1,0 +1,32 @@
+/* user-management.css */
+.user-management-page {
+  padding: 20px;
+}
+
+.user-management-page h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.user-management-page .ant-table {
+  margin-top: 20px;
+}
+
+.user-management-page .ant-btn {
+  margin-bottom: 20px;
+}
+
+.user-management-page .ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+/* Modal Form */
+.user-management-page .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.user-management-page .ant-form-item-label {
+  font-weight: bold;
+}

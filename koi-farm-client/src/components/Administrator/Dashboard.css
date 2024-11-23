@@ -1,0 +1,71 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #7b0404;
+    min-height: 100vh;
+    color: white;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    color: #f4f4f4;
+  }
+  
+  .dashboard-space {
+    width: 100%;
+  }
+  
+  .dashboard-card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .icon-container {
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    background: #f0f0f0;
+  }
+  
+  .dashboard-icon {
+    font-size: 24px;
+    color: #ff6666;
+  }
+  
+  .chart-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .recent-orders {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .recent-orders .ant-table {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ant-table-thead > tr > th {
+    background: #7b0404;
+    color: white;
+  }
+  
+  .ant-table-tbody > tr > td {
+    color: #333;
+  }
+  

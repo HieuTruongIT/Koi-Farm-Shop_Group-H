@@ -1,0 +1,92 @@
+.settings-page {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f7f6;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.settings-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 6px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.save-btn svg, .cancel-btn svg {
+    margin-right: 8px;
+}
+
+input::placeholder {
+    color: #888;
+}

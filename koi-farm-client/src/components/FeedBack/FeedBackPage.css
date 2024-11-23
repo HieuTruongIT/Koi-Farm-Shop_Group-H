@@ -20,6 +20,21 @@ body {
     margin: 20px auto;
 }
 
+
+.success-banner {
+    background-color: #18df5d; /* Nền xanh */
+    color: #ffffff; /* Chữ trắng */
+    padding: 10px 20px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+
 /* Header */
 .feedback-container h1 {
     font-size: 32px;

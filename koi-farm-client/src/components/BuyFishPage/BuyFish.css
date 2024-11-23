@@ -1,91 +1,87 @@
-/* General styles */
+/* General body and text styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: white; /* Set default text color to white */
+  background-color: #f5f5f5; /* Nền sáng, dễ nhìn */
+  color: #333; /* Màu chữ chính */
 }
 
-/* Links */
+/* Styling for links */
 a {
   text-decoration: none;
-  color: inherit;
+  color: inherit; /* Đảm bảo liên kết không đổi màu */
 }
 
-/* Header styles */
+a:hover {
+  text-decoration: underline; /* Thêm gạch chân khi hover để người dùng dễ nhận biết */
+}
+
+/* Header */
 .header {
-  background-color: #4c0a0a; /* Primary background color */
-  color: #fff;
-  padding: 10px 20px;
+  background-color: #4c0a0a; /* Đỏ nâu làm màu chủ đạo */
+  color: white;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo styling */
 .header-logo h1 {
   margin: 0;
-  font-size: 24px;
-  color: white; /* Ensure the logo text is white */
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
 }
 
+/* Navigation menu */
 .nav {
   display: flex;
-  align-items: center;
+  gap: 30px;
 }
 
 .nav a {
-  color: #fff;
-  margin: 0 10px;
-  padding: 14px;
+  color: white;
   font-size: 16px;
-  position: relative;
+  padding: 8px 15px;
+  transition: background-color 0.3s ease;
 }
 
 .nav a:hover {
-  background-color: #3a0808; /* Slightly darker shade on hover */
+  background-color: #8c2f2f; /* Đổi màu khi hover */
+  border-radius: 4px;
 }
 
-/* Cart and icons */
-.cart a {
-  color: #fff;
-  font-size: 24px;
-  margin-left: 20px; /* Space between cart and icons */
-}
-
-/* Add spacing between User and Admin icons */
-.user-admin-icons {
-  display: flex;
-  align-items: center;
-  margin-left: 20px; /* Space between user/admin icons and cart */
-}
-
-.user-admin-icons a {
-  color: #fff;
-  font-size: 24px;
-  margin-left: 10px; /* Space between each icon */
-}
-
-/* Dropdown menu styles */
+/* Dropdown menu */
 .dropdown {
   position: relative;
 }
 
-.dropdown .dropbtn {
-  display: inline-flex;
-  align-items: center;
-  color: #fff;
-  padding: 14px 16px;
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
+  border: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  background-color: #8c2f2f; /* Đổi màu khi hover */
+  border-radius: 4px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #fff; /* White background for dropdown */
+  background-color: white;
   min-width: 160px;
-  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
@@ -93,132 +89,130 @@ a {
 }
 
 .dropdown-content a {
-  color: #4c0a0a; /* Red-brown color for dropdown text */
+  color: #4c0a0a; /* Màu chữ trong dropdown */
   padding: 12px 16px;
-  display: block;
-  font-size: 16px;
   text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
 }
 
 .dropdown-content a:hover {
-  background-color: #f4f4f4; /* Light grey on hover */
+  background-color: #f7f7f7;
 }
 
-/* Sub-menu styles */
-.sub-menu {
+/* Icon section in header */
+.header-icons {
   display: flex;
-  flex-direction: column;
-  background-color: #4c0a0a;
-  border-radius: 4px;
+  gap: 20px;
 }
 
-.sub-menu a {
-  padding: 12px;
-  color: #fff;
-  background-color: #333;
-  margin: 4px 0;
+.header-icon {
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s;
 }
 
-.sub-menu a:hover {
-  background-color: #555;
+.header-icon:hover {
+  color: #eaa5a5; /* Màu nhẹ nhàng khi hover */
 }
 
-/* Slideshow styles */
+/* Slideshow */
 .slideshow-container {
   position: relative;
   width: 100%;
   height: 500px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .slideshow-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Đảm bảo ảnh luôn phủ hết khung chứa mà không bị méo */
   transition: opacity 1s ease;
 }
 
-/* Main content styles */
+/* Main content container */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 20px;
 }
 
+/* Card container: hiển thị 4 con cá (sản phẩm) trên một hàng */
 .card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .card {
-  background-color: #fff;
+  background-color: white;
   border-radius: 8px;
   overflow: hidden;
-  width: 300px;
+  width: 23%; /* Đặt chiều rộng để hiển thị 4 card trên một hàng */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
-.p-4 {
+.card .p-4 {
   padding: 16px;
 }
 
-.title {
+.card .title {
   font-size: 20px;
+  color: #4c0a0a;
   margin-bottom: 10px;
-  color: #4c0a0a; /* Title color matching primary background */
 }
 
-.description {
+.card .description {
   font-size: 14px;
-  margin-bottom: 10px;
-  color: white; /* Ensure description text is white */
+  color: #777;
+  margin-bottom: 15px;
 }
 
-.price {
+.card .price {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 20px;
-  color: #4c0a0a; /* Price text color */
+  color: #4c0a0a;
 }
 
-.order-button {
+.card .order-button {
   background-color: #4c0a0a;
-  color: #fff;
+  color: white;
   padding: 12px;
   width: 100%;
   border: none;
-  cursor: pointer;
   font-size: 16px;
-  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.order-button a {
-  color: #fff;
+.card .order-button:hover {
+  background-color: #8c2f2f;
 }
 
-.order-button:hover {
-  background-color: #3a0808;
-}
-
-/* Footer styles */
+/* Footer */
 .footer {
+  background-color: #4c0a0a;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
 }
 
 .footer-left, .footer-center, .footer-right {
@@ -226,59 +220,55 @@ a {
   margin-right: 20px;
 }
 
-.footer-left p, .footer-center p, .footer-right p {
-  margin-bottom: 10px;
-  color: white;
+.footer-left {
+  border-right: 2px solid white;
 }
 
-.footer-left, .footer-center {
-  border-right: 2px solid #ccc;
-  padding-right: 20px;
+.footer-center {
+  text-align: center;
 }
 
-.group-members {
-  display: flex;
-  justify-content: space-between;
+.footer-right {
+  text-align: right;
 }
 
-.group-column {
-  width: 45%;
+.footer img {
+  max-width: 150px;
+  margin-top: 20px;
 }
 
-.footer-img {
-  width: 100%;
-  height: auto;
-  max-width: 200px;
-  display: block;
-  margin: 0 auto;
+.social-icon {
+  color: #3b5998; /* Facebook */
+  margin-right: 10px;
 }
 
+.social-icon:nth-child(2) {
+  color: #E4405F; /* Instagram */
+}
+
+.social-icon:nth-child(3) {
+  color: #1DA1F2; /* Twitter */
+}
+
+/* Contact and Payment images */
 .contact-img, .payment-img {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .contact-img img, .payment-img img {
   max-width: 100%;
-  height: auto;
   border-radius: 8px;
 }
 
-.social-icon {
-  margin-right: 10px;
-  color: #3b5998;
-}
-
-.social-icon:nth-child(2) {
-  color: #E4405F;
-}
-
-.social-icon:nth-child(3) {
-  color: #1DA1F2;
-}
-
-/* Responsive styles */
+/* Responsive styling for smaller screens */
 @media screen and (max-width: 768px) {
   .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header {
+    padding: 15px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -292,12 +282,30 @@ a {
     text-align: center;
   }
 
-  .header, .footer-left, .footer-center, .footer-right {
-    margin: 0 auto;
+  .footer-left, .footer-center, .footer-right {
+    margin: 10px 0;
+    text-align: center;
   }
-}
 
-/* Specific styles for Buy Now button and Fish name */
-.title, .order-button {
-  color: #000; /* Set fish names and 'Buy Now' button text to black */
+  .header-logo h1 {
+    font-size: 24px;
+  }
+
+  .footer img {
+    max-width: 100px;
+  }
+
+  .header-icons {
+    gap: 15px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+
+  .social-icon {
+    font-size: 20px;
+  }
 }

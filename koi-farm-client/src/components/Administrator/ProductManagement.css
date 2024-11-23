@@ -1,0 +1,66 @@
+.product-management {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.product-thumbnail {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-details h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-details p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product-details strong {
+    font-weight: bold;
+}
+
+.product-actions button {
+    margin-right: 10px;
+}
+
+.product-actions button:hover {
+    opacity: 0.7;
+}
+
+/* Add product button */
+.ant-btn-primary {
+    margin-bottom: 20px;
+}
+
+/* Card layout adjustments */
+.product-card {
+    display: flex;
+    align-items: center;
+}
+
+.product-card .product-details {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
